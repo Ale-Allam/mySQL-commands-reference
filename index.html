@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SQL Command Reference Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300..900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #020c1b;
+      --bg-secondary: #0a192f;
+      --text-primary: #ccd6f6;
+      --text-secondary: #fff;
+      --accent-primary: #64ffda;
+      --accent-secondary: #8614f8;
+      --accent-third: #00fe9b;
+      --accent-fourth: #ffff00;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Rubik', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      /* margin-bottom: 40px; */
+      padding: 40px 0;
+      background-color: var(--bg-secondary);
+      /* border-bottom: 2px solid var(--accent-primary); */
+    }
+
+    h1 {
+      color: var(--text-secondary);
+      font-size: 3em;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    h2 {
+      color: var(--accent-primary);
+      margin-top: 30px;
+      font-weight: 600;
+    }
+
+    h3 {
+      color: var(--accent-fourth);
+      font-weight: 500;
+    }
+
+    .terminal-window {
+      /* background: var(--bg-secondary); */
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+
+      box-shadow: 0 0 0 .2px var(--accent-primary);
+    }
+
+    code {
+      font-family: 'Courier New', monospace;
+      color: var(--accent-third);
+      display: block;
+      padding: 15px;
+      background: hsla(207, 62%, 14%, 0.500);
+      border-radius: 4px;
+      margin: 10px 0;
+      font-size: 0.95em;
+    }
+
+    .command-prompt::before {
+      content: "sql> ";
+      color: var(--accent-secondary);
+      font-weight: bold;
+    }
+
+    .nav-section {
+      position: sticky;
+      top: 0;
+      background-color: var(--bg-secondary);
+      padding: 1.5px 0 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--accent-primary);
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--text-primary);
+      text-decoration: none;
+      padding: 5px 15px;
+      border-radius: 4px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-primary);
+      background-color: rgba(100, 255, 218, 0.1);
+    }
+
+    .section {
+      margin-bottom: 40px;
+      padding: 20px;
+      background-color: rgba(10, 25, 47, 0.5);
+      border-radius: 8px;
+    }
+
+
+    ul,
+    ol {
+      padding-left: 25px;
+      color: var(--text-primary);
+    }
+
+    li {
+      margin: 10px 0;
+    }
+
+    .highlight {
+      color: var(--accent-fourth);
+      font-weight: 500;
+    }
+
+    .tip-box {
+      background-color: rgba(134, 20, 248, 0.1);
+      border-left: 4px solid var(--accent-secondary);
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .tip-box h4 {
+      color: var(--accent-fourth);
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <h1>SQL Command Reference Guide</h1>
+    <p>From Beginner to Advanced</p>
+  </div>
+
+  <nav class="nav-section">
+    <div class="nav-links">
+      <a href="#basics">Basics</a>
+      <a href="#queries">Advanced Queries</a>
+      <a href="#admin">Administration</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <section class="section" id="basics">
+      <h2>Basic SQL Commands</h2>
+      <div class="terminal-window">
+        <h3>SELECT Queries</h3>
+        <div class="command-prompt">
+          <code>
+SELECT column1, column2
+FROM table_name
+WHERE condition;
+          </code>
+        </div>
+
+        <h3>INSERT Statement</h3>
+        <div class="command-prompt">
+          <code>
+INSERT INTO table_name (column1, column2)
+VALUES (value1, value2);
+          </code>
+        </div>
+
+        <h3>UPDATE Statement</h3>
+        <div class="command-prompt">
+          <code>
+UPDATE table_name
+SET column1 = value1, column2 = value2
+WHERE condition;
+          </code>
+        </div>
+
+        <h3>DELETE Statement</h3>
+        <div class="command-prompt">
+          <code>
+DELETE FROM table_name
+WHERE condition;
+          </code>
+        </div>
+
+      </div>
+
+      <div class="tip-box">
+        <h4>Pro Tip</h4>
+        <p>Always use WHERE clause when updating or deleting records to avoid accidental modifications.</p>
+      </div>
+    </section>
+
+    <section class="section" id="queries">
+      <h2>Advanced SQL Queries</h2>
+      <div class="terminal-window">
+        <h3>Subqueries</h3>
+        <div class="command-prompt">
+          <code>
+SELECT name
+FROM employees
+WHERE department_id IN (
+    SELECT id 
+    FROM departments 
+    WHERE location = 'NY'
+);
+          </code>
+        </div>
+
+        <h3>DROP COLUMN</h3>
+        <div class="command-prompt">
+          <code>
+ALTER TABLE table_name DROP COLUMN column_name;
+          </code>
+        </div>
+
+        <h3>DELETE Rows with NULL Values</h3>
+        <div class="command-prompt">
+          <code>
+DELETE FROM students WHERE username IS NULL;
+          </code>
+        </div>
+
+        <h3>UPDATE Rows with NULL Values</h3>
+        <div class="command-prompt">
+          <code>
+UPDATE students 
+SET username = 'DefaultUser'
+WHERE username IS NULL;
+          </code>
+        </div>
+
+        <h3>SELECT All Rows</h3>
+        <div class="command-prompt">
+          <code>
+SELECT * FROM students;
+          </code>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" id="admin">
+      <h2>Database Administration</h2>
+      <div class="terminal-window">
+        <h3>User Management</h3>
+        <div class="command-prompt">
+          <code>
+CREATE USER 'username'@'localhost'
+IDENTIFIED BY 'password';
+
+GRANT SELECT, INSERT ON database.*
+TO 'username'@'localhost';
+          </code>
+        </div>
+
+        <h3>ALTER TABLE - Add UNIQUE Constraint</h3>
+        <div class="command-prompt">
+          <code>
+ALTER TABLE students ADD UNIQUE(username);
+          </code>
+        </div>
+
+        <h3>ALTER TABLE - Drop Index</h3>
+        <div class="command-prompt">
+          <code>
+ALTER TABLE students DROP INDEX username;
+          </code>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+</body>
+
+
+</html>
