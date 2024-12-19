@@ -1,0 +1,155 @@
+-- أهم دروس تتفرج عليها كويس كتيـــر الدرس #4-5
+
+----------------------------------------------+
+- To create an empty database (DB).           |
+CREATE DATABASE IF NOT EXISTS `database_name`;|
+----------------------------------------------+
+
+------------------+
+- To show all DBs.|
+SHOW DATABASES;   |
+------------------+
+
+----------------------------------------+
+- To delete a database (DB).            |
+DROP DATABASE IF EXISTS `database_name`;|
+----------------------------------------+
+
+-------------------------------------------------------------+
+- To insert data into an existing table.                     |
+INSERT INTO `my_table` (`column1_name`, `column2_name`, ...) | 
+VALUES ('value1', 'value2', ...);                            |
+# Note:                                                      |
+- Be careful with backticks (`) when specifying column names.|
+  They are optional but recommended to avoid conflicts with  |
+  reserved keywords or special characters.                   |
+- Use single quotes (' ') around string values to be added.  |
+  Double quotes (" ") are not standard for values in SQL.    |
+------------------------------------------------------------+
+
+----------------------------------------+
+- To create a new table.                |
+CREATE TABLE `my_table` (               |
+    `id` INT AUTO_INCREMENT PRIMARY KEY,|
+    `username` VARCHAR(255) UNIQUE,     |
+    `name` VARCHAR(255),                |
+    `email` VARCHAR(255)                |
+);                                      |
+----------------------------------------+
+
+---------------------------------------------+
+- To show all the data from a specific table.|
+SELECT * FROM `my_table`;                    |
+---------------------------------------------+
+
+------------------------------------------+
+- To show all columns of a specific table.|
+DESCRIBE `my_table`;                      |
+------------------------------------------+
+
+------------------------+
+- To show tables status.|
+SHOW TABLE STATUS;      |
+------------------------+
+
+---------------------------------------------------+
+- To show the command of spesfic table you created.|
+SHOW CREATE TABLE `my_table`;                      |
+---------------------------------------------------+
+
+-------------------------------------------+
+- To rename table.                         |
+RENAME TABLE old_name TO new_name;         |
+--                                         |
+# note if you want rename multiabel tables.|
+RENAME TABLE old_name TO new_name,         |
+old_name TO new_name                       |
+;                                          |
+-------------------------------------------+
+
+------------------------------------------------------+
+- To delete a specific record by condition.           |
+DELETE FROM `my_table` WHERE `username` = 'the name';|
+------------------------------------------------------+
+
+----------------------------------+
+- To delete all data from a table.|
+DELETE FROM `my_table`;           |
+----------------------------------+
+
+-----------------------------------------------+
+- To change the storage engine of a table.     |
+ALTER TABLE `my_table` ENGINE = InnoDB;        |
+-----------------------------------------------+
+
+
+-------------------------------------------+
+- To drop a specific column from a table.  |
+ALTER TABLE `my_table` DROP COLUMN `email`;|
+-------------------------------------------+
+
+-----------------------------------------------+
+- To drop a unique index (e.g., from a column).|
+ALTER TABLE `my_table` DROP INDEX `username`;  |
+-----------------------------------------------+
+
+-----------------------------------------------+
+- To add a unique index to a column.           |
+ALTER TABLE `my_table` ADD UNIQUE (`username`);|
+-----------------------------------------------+
+
+
+===============================================================================================
+==to add a new column to an existing table in MySQL, with options for specifying its position==
+===============================================================================================
+----------------------------------------------------------------+
+- To add a new column to an existing table and added in the end.|
+ALTER TABLE `students` ADD `age` INT;                           |
+----------------------------------------------------------------+
+
+-----------------------------------------------+
+- To add a new column before a specific column.|
+ALTER TABLE `students` ADD `age` INT           |
+  BEFORE `username`;                           |
+-----------------------------------------------+
+
+----------------------------------------------+
+- To add a new column after a specific column.|
+ALTER TABLE `students` ADD `age` INT          |
+  AFTER `username`;                           |
+----------------------------------------------+
+
+------------------------------------------------+
+- To add a new column at the beginning of table.|
+ALTER TABLE `students` ADD `age` INT            |
+  FIRST;                                        |
+------------------------------------------------+
+
+
+********************************************************************
+**If the column already exists and you want to change its position**
+********************************************************************
+
+-----------------------------------------------+
+- To change the position of an existing column.|
+ALTER TABLE `students` MODIFY `age` INT        |
+  AFTER `username`;                            |
+-----------------------------------------------+
+
+----------------------------------------------+
+- To move an existing column to the beginning.|
+ALTER TABLE `students` MODIFY `age` INT       |
+  FIRST;                                      |
+----------------------------------------------+
+
+------------------------------------------------------+
+- To move an existing column before a specific column.|
+ALTER TABLE `students` MODIFY `age` INT               |
+  BEFORE `last_column_name`;                          |
+------------------------------------------------------+
+===============================================================================================
+
+-----------------------------------------------+
+- To delete an entire table with its structure.|
+DROP TABLE `my_table`;                         |
+-----------------------------------------------+
